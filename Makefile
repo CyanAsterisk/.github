@@ -4,8 +4,8 @@ SHELL := /bin/bash
 	help \
 	coverage \
 	vet \
-	fmt \
-	version
+	fmt
+
 
 all: imports fmt vet errors build
 
@@ -18,13 +18,9 @@ help:
 	@echo '    coverage           Report code tests coverage.'
 	@echo '    vet                Run go vet.'
 	@echo '    fmt                Run go fmt.'
-	@echo '    version            Display Go version.'
 	@echo ''
 	@echo 'Targets run by default are: lint, vet.'
 	@echo ''
-
-print-%:
-	@echo $* = $($*)
 
 deps:
 	go get golang.org/x/lint/golint
@@ -38,14 +34,6 @@ vet:
 fmt:
 	go install mvdan.cc/gofumpt@latest
 	gofumpt -l -w -extra .
-
-pre-dev:
-	make pre-commit
-
-pre-commit:
-	bash script/pre-commit-hook
-
-release: package-release sign-release
 
 version:
 	@go version
