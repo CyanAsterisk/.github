@@ -4,6 +4,6 @@
 
 Money is cheap, show me the code.
 
-## License
+## 许可证
 
-This project is under the Apache License 2.0. See the LICENSE file for the full license text.
+项目在 Apache 许可证 2.0 版下开源。
